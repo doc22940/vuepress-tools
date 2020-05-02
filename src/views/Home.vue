@@ -220,21 +220,21 @@ export default {
       headerCards: [
         {
           title: "Vuepress Plugins",
-          decsription:
+          description:
             "Add extra functionality to your Vuepress project efortlessly!",
           link: "/plugins",
           icon: "el-icon-magic-stick"
         },
         {
           title: "Vuepress Themes",
-          decsription:
+          description:
             "Add a touch of beauty to your Vuepress project with no time!",
           link: "/themes",
           icon: "el-icon-brush"
         },
         {
           title: "Vuepress Projects",
-          decsription:
+          description:
             "See Open-source live examples of great sites built with Vuepress!",
           link: "/projects",
           icon: "el-icon-suitcase"

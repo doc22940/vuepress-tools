@@ -14,7 +14,7 @@
       :default-active="activeIndex"
       :router="true"
       class="el-menu-demo"
-      mode="horizontal"
+      :mode="menuMode"
     >
       <el-menu-item index="/">
         <i class="el-icon-house"></i><span>Home</span>
@@ -26,9 +26,6 @@
       <el-menu-item index="/plugins"
         ><i class="el-icon-magic-stick"></i><span>Plugins</span>
       </el-menu-item>
-      <el-menu-item index="/projects"
-        ><i class="el-icon-suitcase"></i><span>Projects</span>
-      </el-menu-item>
       <el-menu-item index="/about"
         ><i class="el-icon-user"></i><span>About</span>
       </el-menu-item>
@@ -38,12 +35,23 @@
 
 <script>
 export default {
+  data() {
+    return {
+      menuMode: "horizontal"
+    };
+  },
   computed: {
     activeIndex() {
       return this.$route.path;
     }
+  },
+  mounted() {
+    window.addEventListener("resize", this.setMenuMode);
+  },
+  methods: {
+    setMenuMode() {
+      this.menuMode = window.innerWidth < 768 ? "vertical" : "horizontal";
+    }
   }
 };
 </script>
-
-<style></style>
