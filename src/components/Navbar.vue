@@ -15,7 +15,6 @@
       :router="true"
       class="el-menu-demo"
       mode="horizontal"
-      @select="handleSelect"
     >
       <el-menu-item index="/">
         <i class="el-icon-house"></i><span>Home</span>
