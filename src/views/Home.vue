@@ -64,11 +64,11 @@
                     Add extra functionality to your Vuepress project
                     efortlessly!
                   </p>
-                  <nuxt-link to="/plugins">
+                  <router-link to="/plugins">
                     <el-button>
                       Explore Plugins
                     </el-button>
-                  </nuxt-link>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -86,11 +86,11 @@
                   <p class="mt-2 mb-4 text-gray-600">
                     Add a touch of beauty to your Vuepress project with no time!
                   </p>
-                  <nuxt-link to="/themes">
+                  <router-link to="/themes">
                     <el-button>
                       Explore Themes
                     </el-button>
-                  </nuxt-link>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -109,11 +109,11 @@
                     See Open-source live examples of great sites built with
                     Vuepress!
                   </p>
-                  <nuxt-link to="/projects">
+                  <router-link to="/projects">
                     <el-button>
                       Explore Projects
                     </el-button>
-                  </nuxt-link>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -141,11 +141,11 @@
                   <p class="text-base text-gray-400">description</p>
                 </div>
                 <div class="pt-2">
-                  <nuxt-link to="/">
+                  <router-link to="/">
                     <el-button type="primary">
                       Link
                     </el-button>
-                  </nuxt-link>
+                  </router-link>
                 </div>
               </div>
             </el-carousel-item>
@@ -265,9 +265,9 @@
 </template>
 <script>
 export default {
-  name: 'index',
+  name: "index",
   components: {}
-}
+};
 </script>
 
 <style lang="scss">

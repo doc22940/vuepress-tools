@@ -1,23 +1,21 @@
 <template>
-  <div id='app'>
-    <router-view></router-view>
+  <div id="app">
+    <component :is="currentLayout" />
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app',
-  components: {}
-}
-</script>
+import Default from "./layouts/Default";
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+export default {
+  name: "App",
+  components: {
+    Default
+  },
+  data() {
+    return {
+      currentLayout: "Default"
+    };
+  }
+};
+</script>

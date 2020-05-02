@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>About</h1>
+    <h1>Vuepress Plugins</h1>
   </div>
 </template>
 
