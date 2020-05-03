@@ -2,14 +2,14 @@
   <div>
     <div v-infinite-scroll="load">
       <div
-        v-for="i of packages"
-        :key="String(i)"
+        v-for="p of packages"
+        :key="p.package.name"
         class="cursor-pointer h-24 hover:bg-teal-100"
       >
-        <div class="package-info h-full">
+        <div v-if="p.package.name" class="package-info h-full">
           <router-link to="/">
             <div class="flex p-4">
-              <div class="h-16">
+              <div class="h-12">
                 <img
                   src="../assets/images/Ahmad-Mostafa.png"
                   alt="author image"
@@ -17,10 +17,12 @@
                 />
               </div>
               <div class="mx-3">
-                <h3 class="font-semibold">
-                  Package name
+                <h3 class="font-semibold pb-1">
+                  {{ p.package.name }}
                 </h3>
-                <p class="text-gray-500 text-sm">Package description</p>
+                <p class="text-gray-500 text-sm capitalize">
+                  {{ p.package.description | truncate(42) }}
+                </p>
               </div>
             </div>
           </router-link>
@@ -28,8 +30,8 @@
       </div>
 
       <div
-        v-loading="isSidebarLoading"
-        class="cursor-pointer h-24 hover:bg-teal-100"
+        v-loading="isFetchingPackages"
+        class="cursor-wait h-24 hover:bg-teal-100"
         element-loading-spinner="el-icon-loading text-3xl absolute-center"
       ></div>
     </div>
@@ -40,17 +42,21 @@
 import { mapState } from "vuex";
 
 export default {
-  computed: {
-    ...mapState(["packages", "isSidebarLoading"])
+  filters: {
+    truncate(text, length) {
+      if (text.length > length) {
+        return text.substring(0, length) + "...";
+      } else {
+        return text;
+      }
+    }
   },
-  mounted() {
-    this.$store.dispatch("fetchPackages");
+  computed: {
+    ...mapState(["packages", "isFetchingPackages"])
   },
   methods: {
     load() {
-      console.log("loading");
-
-      this.$store.dispatch("fetchNextPage");
+      this.$store.dispatch("fetchPackages");
     }
   }
 };

@@ -243,7 +243,10 @@ export default {
     };
   },
   mounted() {
-    this.$store.commit("setLayout", "Default");
+    this.$store.commit("setPageContext", {
+      layout: "Default",
+      page: this.$route.name
+    });
   }
 };
 </script>

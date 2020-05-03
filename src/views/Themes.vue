@@ -21,9 +21,11 @@
 <script>
 export default {
   mounted() {
-    this.$store.commit("setLayout", "WithSidebar");
+    this.$store.commit("setPageContext", {
+      layout: "WithSidebar",
+      page: this.$route.name
+    });
+    this.$store.dispatch("fetchPackages");
   }
 };
 </script>
-
-<style></style>

@@ -1,44 +1,48 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { getPlugins } from "./utils/plugins";
+import { getThemes } from "./utils/themes";
+import { getProjects } from "./utils/projects";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     currentLayout: "default",
+    currentPage: "",
     packages: [],
-    isSidebarLoading: false
+    isFetchingPackages: false
   },
   mutations: {
-    setLayout(state, layout) {
+    setPageContext(state, { layout, page }) {
       state.currentLayout = layout;
+      state.currentPage = page;
+      state.packages = [];
     },
-    appendPackages(state, packages) {
-      state.packages = state.packages.concat(packages);
+    setPackages(state, data) {
+      state.packages = state.packages.concat(data.results);
     },
-    setPackages(state, packages) {
-      state.packages = packages;
-    },
-    toggleIsSidebarLoading(state) {
-      state.isSidebarLoading = !state.isSidebarLoading;
+    toggleIsFetchingPackages(state) {
+      state.isFetchingPackages = !state.isFetchingPackages;
     }
   },
   actions: {
-    fetchPackages({ commit }) {
-      commit("toggleIsSidebarLoading");
-      setTimeout(() => {
-        const mockData = [...Array(10).keys()].map(i => i + 1);
-        commit("setPackages", mockData);
-        commit("toggleIsSidebarLoading");
-      }, 1000);
-    },
-    fetchNextPage({ commit }) {
-      commit("toggleIsSidebarLoading");
-      setTimeout(() => {
-        const mockData = [...Array(10).keys()].map(i => i + 1);
-        commit("appendPackages", mockData);
-        commit("toggleIsSidebarLoading");
-      }, 1000);
+    async fetchPackages({ commit, state }) {
+      if (state.isFetchingPackages) {
+        return false;
+      }
+      commit("toggleIsFetchingPackages");
+      const type = state.currentPage.toLowerCase();
+      const handlers = {
+        plugins: getPlugins,
+        themes: getThemes,
+        projects: getProjects
+      };
+      const handler = handlers[type];
+      const from = state.packages.length;
+      const data = await handler(from);
+      commit("setPackages", data);
+      commit("toggleIsFetchingPackages");
     }
   },
   modules: {}
