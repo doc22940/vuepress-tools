@@ -12,7 +12,7 @@
             <SidebarMenuItem
               :title="p.package.name"
               :description="p.package.description"
-              :to="getAbsoluteURL(p.package.name)"
+              :link="getAbsoluteURL(p.package.name)"
             />
           </div>
         </div>
