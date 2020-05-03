@@ -9,9 +9,9 @@
         <div v-if="p.package.name" class="package-info h-full">
           <router-link to="/">
             <div class="flex p-4">
-              <div class="h-12">
+              <div class="h-16 gradient-animation">
                 <img
-                  src="../assets/images/Ahmad-Mostafa.png"
+                  src="https://t4.ftcdn.net/jpg/02/07/87/79/240_F_207877921_BtG6ZKAVvtLyc5GWpBNEIlIxsffTtWkv.jpg"
                   alt="author image"
                   class="h-full rounded-lg"
                 />
@@ -44,7 +44,7 @@ import { mapState } from "vuex";
 export default {
   filters: {
     truncate(text, length) {
-      if (text.length > length) {
+      if (text && text.length > length) {
         return text.substring(0, length) + "...";
       } else {
         return text;

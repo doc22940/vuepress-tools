@@ -1,0 +1,37 @@
+.bg-gradient--1 {
+  background: linear-gradient(
+    to right,
+    lighten($--color-primary, 20%),
+    darken($--color-primary, 10%)
+  );
+}
+.bg-gradient--2 {
+  background: linear-gradient(
+    to right,
+    $--color-primary,
+    lighten($--color-primary, 10%)
+  );
+}
+
+.gradient-animation {
+  background: linear-gradient(
+    -45deg,
+    #ee7752,
+    #e73c7e,
+    #23a6d5,
+    $--color-primary
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

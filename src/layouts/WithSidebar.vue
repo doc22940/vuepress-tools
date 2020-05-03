@@ -17,6 +17,7 @@
 <script>
 import Sidebar from "../components/Sidebar.vue";
 import Navbar from "../components/Navbar.vue";
+import "../scss/index.scss";
 
 export default {
   components: {

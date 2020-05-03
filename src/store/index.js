@@ -40,9 +40,13 @@ export default new Vuex.Store({
       };
       const handler = handlers[type];
       const from = state.packages.length;
-      const data = await handler(from);
-      commit("setPackages", data);
-      commit("toggleIsFetchingPackages");
+      try {
+        const data = await handler(from);
+        commit("setPackages", data);
+        commit("toggleIsFetchingPackages");
+      } catch (err) {
+        commit("toggleIsFetchingPackages");
+      }
     }
   },
   modules: {}
