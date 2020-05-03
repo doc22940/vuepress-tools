@@ -5,8 +5,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    currentLayout: "default",
     packages: [],
-    currentLayout: "default"
+    isSidebarLoading: false
   },
   mutations: {
     setLayout(state, layout) {
@@ -17,16 +18,27 @@ export default new Vuex.Store({
     },
     setPackages(state, packages) {
       state.packages = packages;
+    },
+    toggleIsSidebarLoading(state) {
+      state.isSidebarLoading = !state.isSidebarLoading;
     }
   },
   actions: {
     fetchPackages({ commit }) {
-      const mockData = [...Array(10).keys()].map(i => i + 1);
-      commit("setPackages", mockData);
+      commit("toggleIsSidebarLoading");
+      setTimeout(() => {
+        const mockData = [...Array(10).keys()].map(i => i + 1);
+        commit("setPackages", mockData);
+        commit("toggleIsSidebarLoading");
+      }, 1000);
     },
     fetchNextPage({ commit }) {
-      const mockData = [...Array(10).keys()].map(i => i + 1);
-      commit("appendPackages", mockData);
+      commit("toggleIsSidebarLoading");
+      setTimeout(() => {
+        const mockData = [...Array(10).keys()].map(i => i + 1);
+        commit("appendPackages", mockData);
+        commit("toggleIsSidebarLoading");
+      }, 1000);
     }
   },
   modules: {}

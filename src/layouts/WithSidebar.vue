@@ -4,7 +4,7 @@
       <navbar />
     </el-header>
     <el-container class="h-full">
-      <el-aside width="400px" class="shadow bg-white">
+      <el-aside width="30rem" class="shadow bg-white">
         <sidebar />
       </el-aside>
       <el-main>
