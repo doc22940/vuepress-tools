@@ -5,17 +5,18 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import Default from "./layouts/Default";
+import WithSidebar from "./layouts/WithSidebar";
 
 export default {
   name: "App",
   components: {
-    Default
+    Default,
+    WithSidebar
   },
-  data() {
-    return {
-      currentLayout: "Default"
-    };
+  computed: {
+    ...mapState(["currentLayout"])
   }
 };
 </script>

@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <navbar />
-    <router-view />
-  </div>
+  <el-container class="h-screen">
+    <el-header class="px-0 shadow-lg z-10">
+      <navbar />
+    </el-header>
+    <router-view></router-view>
+  </el-container>
 </template>
 
 <script>
@@ -14,5 +16,3 @@ export default {
   }
 };
 </script>
-
-<style></style>

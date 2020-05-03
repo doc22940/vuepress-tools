@@ -5,7 +5,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    this.$store.commit("setLayout", "Default");
+  }
+};
 </script>
-
-<style></style>

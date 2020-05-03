@@ -4,9 +4,7 @@
       class="relative pt-16 pb-32 flex content-center items-center justify-center"
       style="min-height: 75vh;"
     >
-      <div
-        class="absolute top-0 w-full h-full bg-center bg-cover bg-gradient--1"
-      ></div>
+      <div class="absolute top-0 w-full h-full gradient-animation"></div>
       <div class="container relative mx-auto">
         <div class="items-center flex flex-wrap">
           <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
@@ -36,13 +34,13 @@
           y="0"
         >
           <polygon
-            class="text-teal-100 fill-current"
+            class="text-white fill-current"
             points="2560 0 2560 100 0 100"
           ></polygon>
         </svg>
       </div>
     </div>
-    <section class="pb-20 bg-teal-100 -mt-40">
+    <section class="pb-20 -mt-40">
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap">
           <div
@@ -51,36 +49,40 @@
             class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center"
           >
             <div
-              class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
+              class="nav-card relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg hover:shadow-xl rounded-lg"
             >
-              <div class="px-4 py-5 flex-auto">
+              <div class="px-4 py-12 flex-auto">
                 <div
-                  class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-gradient--2"
+                  class="text-white p-3 text-center inline-flex items-center justify-center w-24 h-24 mb-5 shadow-lg border-white rounded-full gradient-animation"
                 >
-                  <i class="text-2xl" :class="card.icon"></i>
+                  <i class="text-4xl" :class="card.icon"></i>
                 </div>
-                <h6 class="text-xl font-semibold">{{ card.title }}</h6>
-                <p class="mt-2 mb-4 text-gray-600">
-                  {{ card.description }}
-                </p>
+                <div class=" pb-10">
+                  <h6 class="text-xl font-semibold">{{ card.title }}</h6>
+                  <p class="mt-2 mb-4 text-gray-500">
+                    {{ card.description }}
+                  </p>
+                </div>
                 <router-link :to="card.link">
-                  <el-button> Explore {{ card.title }} </el-button>
+                  <el-button type="primary">
+                    Explore {{ card.title }}
+                  </el-button>
                 </router-link>
               </div>
             </div>
           </div>
         </div>
-        <div class="flex flex-wrap justify-center text-center mb-24">
+        <div class="flex flex-wrap justify-center text-center mt-24 mb-12">
           <div class="w-full lg:w-6/12 px-4">
             <h2 class="text-4xl font-semibold">
               Chosen for you
             </h2>
-            <p class="text-lg leading-relaxed m-4 text-gray-600">
+            <p class="text-lg leading-relaxed m-4 text-gray-500">
               Check out these tools we picked for you!
             </p>
           </div>
         </div>
-        <el-carousel :interval="5000" arrow="always" type="card" height="400px">
+        <el-carousel :interval="5000" arrow="always" height="400px">
           <el-carousel-item v-for="item in 4" :key="item">
             <div class="h-full w-full bg-teal-900 text-center p-10">
               <div>
@@ -125,7 +127,7 @@
             <h2 class="text-4xl font-semibold">
               Contribute to this website
             </h2>
-            <p class="text-lg leading-relaxed m-4 text-gray-600">
+            <p class="text-lg leading-relaxed m-4 text-gray-500">
               Here are the people behined this website, you can be one of them,
               this website is free and open-source
             </p>
@@ -137,8 +139,7 @@
               <img
                 alt="Ahamd Mostafa"
                 src="../assets/images/Ahmad-Mostafa.png"
-                class="shadow-lg rounded-full max-w-full mx-auto"
-                style="max-width: 120px;"
+                class="shadow-lg rounded-full max-w-full mx-auto h-40"
               />
               <div class="pt-6 text-center">
                 <h5 class="text-xl font-bold">Ahmad Mostafa</h5>
@@ -149,16 +150,15 @@
             </div>
           </div>
           <div
-            class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4"
             v-for="i of 3"
             :key="i"
+            class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4"
           >
-            <div class="px-6">
+            <div>
               <img
                 alt="Be the next"
                 src="../assets/images/anonymous.jpg"
-                class="shadow-lg rounded-full max-w-full mx-auto"
-                style="max-width: 120px;"
+                class="shadow-lg rounded-full max-w-full mx-auto h-40"
               />
               <div class="pt-6 text-center">
                 <h5 class="text-xl font-bold">You?</h5>
@@ -171,7 +171,7 @@
         </div>
       </div>
     </section>
-    <section class="pb-20 relative block bg-teal-900">
+    <section class="pb-20 relative block bg-gray-900">
       <div
         class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
         style="height: 80px; transform: translateZ(0px);"
@@ -186,12 +186,12 @@
           y="0"
         >
           <polygon
-            class="text-teal-900 fill-current"
+            class="text-gray-900 fill-current"
             points="2560 0 2560 100 0 100"
           ></polygon>
         </svg>
       </div>
-      <footer class="container mx-auto px-4 lg:pt-24 lg:pb-64">
+      <footer class="container mx-auto px-4 lg:pt-24 lg:pb-40">
         <div class="flex flex-wrap text-center justify-center">
           <div class="w-full lg:w-6/12 px-4">
             <p class="text-lg leading-relaxed mt-4 mb-4 text-teal-200">
@@ -228,19 +228,22 @@ export default {
         {
           title: "Vuepress Themes",
           description:
-            "Add a touch of beauty to your Vuepress project with no time!",
+            "Add a touch of beauty to your Vuepress project instantly!",
           link: "/themes",
           icon: "el-icon-brush"
         },
         {
           title: "Vuepress Projects",
           description:
-            "See Open-source live examples of great sites built with Vuepress!",
+            "See Open-source examples of great sites built with Vuepress!",
           link: "/projects",
           icon: "el-icon-suitcase"
         }
       ]
     };
+  },
+  mounted() {
+    this.$store.commit("setLayout", "Default");
   }
 };
 </script>
@@ -259,5 +262,28 @@ export default {
     $--color-primary,
     lighten($--color-primary, 10%)
   );
+}
+
+.gradient-animation {
+  background: linear-gradient(
+    -45deg,
+    #ee7752,
+    #e73c7e,
+    #23a6d5,
+    $--color-primary
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 </style>
