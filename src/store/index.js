@@ -17,17 +17,22 @@ export default new Vuex.Store({
     setPageContext(state, { layout, page }) {
       state.currentLayout = layout;
       state.currentPage = page;
-      state.packages = [];
     },
-    setPackages(state, data) {
+    appendPackages(state, data) {
       state.packages = state.packages.concat(data.results);
+    },
+    setPackages(state, packages) {
+      state.packages = packages;
     },
     toggleIsFetchingPackages(state) {
       state.isFetchingPackages = !state.isFetchingPackages;
     }
   },
   actions: {
-    async fetchPackages({ commit, state }) {
+    async fetchPackages({ commit, state }, payload) {
+      if (payload && payload.reset) {
+        commit("setPackages", []);
+      }
       if (state.isFetchingPackages) {
         return false;
       }
@@ -42,7 +47,7 @@ export default new Vuex.Store({
       const from = state.packages.length;
       try {
         const data = await handler(from);
-        commit("setPackages", data);
+        commit("appendPackages", data);
         commit("toggleIsFetchingPackages");
       } catch (err) {
         commit("toggleIsFetchingPackages");

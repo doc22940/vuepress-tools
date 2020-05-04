@@ -5,7 +5,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    this.$store.commit("setPageContext", {
+      layout: "WithSidebar",
+      page: "projects"
+    });
+    this.$store.dispatch("fetchPackages");
+  }
+};
 </script>
-
-<style></style>

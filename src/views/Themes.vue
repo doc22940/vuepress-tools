@@ -26,9 +26,9 @@ export default {
   mounted() {
     this.$store.commit("setPageContext", {
       layout: "WithSidebar",
-      page: this.$route.name
+      page: "themes"
     });
-    this.$store.dispatch("fetchPackages");
+    this.$store.dispatch("fetchPackages", { reset: true });
   }
 };
 </script>

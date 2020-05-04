@@ -5,7 +5,5 @@ export async function getProjects(from) {
     `https://api.npms.io/v2/search?q=vuepress-plugin&from=${from}`
   );
 
-  console.log(response.data);
-
   return response.data;
 }

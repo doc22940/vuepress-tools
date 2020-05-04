@@ -49,7 +49,8 @@ export default {
   },
   computed: {
     activeIndex() {
-      return this.$route.path;
+      const basePath = this.$route.path.split("/")[1];
+      return `/${basePath}`;
     }
   },
   mounted() {
