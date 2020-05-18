@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  mounted() {
+  created() {
     this.$store.commit("setPageContext", {
       layout: "WithSidebar",
       page: "themes"

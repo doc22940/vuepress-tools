@@ -53,7 +53,7 @@ export default {
       return `/${basePath}`;
     }
   },
-  mounted() {
+  created() {
     window.addEventListener("resize", this.setMenuMode);
   },
   methods: {

@@ -8,7 +8,9 @@
         <sidebar />
       </el-aside>
       <el-main>
-        <router-view></router-view>
+        <transition name="el-fade-in-linear" mode="out-in">
+          <router-view></router-view>
+        </transition>
       </el-main>
     </el-container>
   </el-container>

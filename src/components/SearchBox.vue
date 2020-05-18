@@ -51,7 +51,7 @@ export default {
       console.log(item);
     }
   },
-  mounted() {
+  created() {
     this.links = this.loadAll();
   }
 };

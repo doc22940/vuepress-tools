@@ -242,7 +242,7 @@ export default {
       ]
     };
   },
-  mounted() {
+  created() {
     this.$store.commit("setPageContext", {
       layout: "Default",
       page: ""
